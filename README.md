@@ -64,3 +64,33 @@ vcam.Lens.OrthographicSize = math.clamp(vcam.Lens.OrthographicSize + zoomAction.
 Limitando el tamaño con el clamp podemos hacer que la cámara permita ver al personaje en su totalidad y que no se vea demasiado pequeño si se sigue aplicando el zoom.
 
 ![zoom](./Media/zoom.gif)
+
+> Seleccionar un conjunto de teclas que permitan hacer el cambio entre dos cámaras . (Habilitar/Deshabilitar el gameobject de la cámara virtual)
+
+> Implementar una UI que incluya algún elemento para seleccionar que cámara se activa.
+
+Para implementar estas dos tareas, en lugar de pensar en un sistema que active una cámara y desactive la otra (fuertemente enlazado a dos cámaras), se puede utilizar una lista que almacene todas las cámara y que se elija la que activar mediante un índice, desactivando las demás. 
+A través de las teclas de flecha derecha e izquierda se puede cambiar entre las diferentes cámaras, mientras que la UI permite realizar la misma acción con un desplegable.
+
+La función principal que realiza el cambio de cámaras es así:
+
+```cs
+public void SelectCamera(int index)
+{
+    for (int i = 0; i < cameras.Count; i++)
+    {
+        if (i == index)
+        {
+            cameras[i].SetActive(true);
+            continue;
+        }
+        cameras[i].SetActive(false);
+    }
+}
+```
+
+Lo bueno que tiene este método es que puede ser llamado de dos maneras: primero con las flechas presionadas en el `Update()`, y luego con la interfaz de usuario, enlazado al evento onClick.
+
+Como resultado, se muestra la funcionalidad, primero pulsando las teclas, y luego seleccionando desde la UI:
+
+![Camera selector](./Media/CameraSelector.gif)
