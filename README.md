@@ -120,3 +120,23 @@ Como resultado, se ve que el personaje se mueve más despacio o más rápido, en
 
 ![Slow and fast camera](./Media/SlowFastCamera.gif)
 
+> Crear un script para intercambiar la cámara activa, una estará confinada y la otra no cuando el personaje entre en colisión con un elemento de la escena que elijas para realizar el intercambio.
+
+Para este caso, se han mantenido las dos cámaras activas. Se le ha dado una prioridad mayor a la que sigue al jugador, mientras que la que tiene el confinamiento tiene una prioridad menor al inicio. Por tanto, la cámara empieza siguiendo al jugador sin confinamiento.
+
+Para hacer el intercambio, al colisionar el jugador con una zona, lo que hago es intercambiar las prioridades entre las cámaras, haciendo que la más alta ahora sea la del confinamiento y la más baja, la que no lo tiene. Como se usa en un evento de trigger, esto permite que el efecto sea reversible:
+
+```cs
+private void OnTriggerEnter2D(Collider2D other) {
+    if (other.tag == "Tower")
+    {
+        int priority = cam1.Priority;
+        cam1.Priority = cam2.Priority;
+        cam2.Priority = priority;
+    }
+}
+```
+
+Como resultado:
+
+![Camera Priority](./Media/CameraPriority.gif)
