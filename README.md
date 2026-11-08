@@ -33,3 +33,12 @@ En el caso del polígono ocurre lo mismo. También se puede apreciar como el mov
 
 ![Confiner2](./Media/confiner2.gif)
 
+> Agrega varios sprites en la escena que estén realizando un movimiento (mínimo 3). Genera una cámara adicional que le haga el seguimiento a dichos objetos.
+
+![sheeps](./Media/sheeps.png)
+
+Se han colocado 3 ovejas que siguen un movimiento senoidal a lo largo de los ejes. Tras esto, se ha añadido una cámara del tipo target group junto con su corriente script. En la cámara, se han configurado como objetivos a seguir las tres ovejas. Además, se ha activado el encuadre automático que permite alejarse si es necesario para que las ovejas estén dentro del frustum. El resultado es el siguiente:
+
+![Sheeps in group](./Media/sheepsgroup.gif)
+
+
