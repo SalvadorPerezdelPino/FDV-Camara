@@ -41,4 +41,12 @@ Se han colocado 3 ovejas que siguen un movimiento senoidal a lo largo de los eje
 
 ![Sheeps in group](./Media/sheepsgroup.gif)
 
+> Agrega 2 sprites adicionales en la escena que estén realizando un movimiento Genera una cámara adicional que le haga el seguimiento a dichos objetos, cada uno con un peso en la importancia del seguimiento diferente.
 
+![Target 5](./Media/target5.png)
+
+Ahora se han añadido dos ovejas más y configurado los pesos. A la última oveja se le ha puesto un peso superior para mostrar cómo la cámara le da más importancia y dentro del encuadre, intenta prestarle más atención.
+
+![Target 5](./Media/target5.gif)
+
+Se puede observar que el movimiento que realiza la cámara es muy similar al que sigue la oveja de la derecha, que es la que más peso tiene, mientras intenta mantener las otras dentro del encuadre en función de su peso y posibilidades.
