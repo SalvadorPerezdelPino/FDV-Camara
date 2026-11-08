@@ -50,3 +50,17 @@ Ahora se han añadido dos ovejas más y configurado los pesos. A la última ovej
 ![Target 5](./Media/target5.gif)
 
 Se puede observar que el movimiento que realiza la cámara es muy similar al que sigue la oveja de la derecha, que es la que más peso tiene, mientras intenta mantener las otras dentro del encuadre en función de su peso y posibilidades.
+
+> Implementar un zoom a la cámara del jugador que se controle con las teclas w-s
+
+Para conservar el movimiento con las teclas WASD, el zoom se ha colocado en las felchas hacia arriba y abajo del teclado. Tras realizar este enlace en las Input Actions, se ha añadido a la cámara un script que gestiona el zoom.
+
+En el `Update()`:
+
+```cs
+vcam.Lens.OrthographicSize = math.clamp(vcam.Lens.OrthographicSize + zoomAction.action.ReadValue<float>() * Time.deltaTime, 1, 8);
+```
+
+Limitando el tamaño con el clamp podemos hacer que la cámara permita ver al personaje en su totalidad y que no se vea demasiado pequeño si se sigue aplicando el zoom.
+
+![zoom](./Media/zoom.gif)
