@@ -16,3 +16,20 @@ La primera cuenta con una opciones parecidas a las por defecto en cuanto a las z
 Mientras que en la segunda cámara, la región inmediata se ha acortado por los lados mientras que el suavizado se ha mantenido en vertical:
 
 ![Camera2](./Media/camera2.gif)
+
+> Define un área de confinamiento diferente para cada una de las dos cámaras de la tarea anterior. Realiza una prueba de ejecución con el correspondiente gif animado que permita ver las diferencias.
+
+Se ha definido un cuadrado y un polígono tal que así:
+
+![Colliders](./Media/collider.png)
+
+Una vez asignado a sus correspondientes cámaras virtuales, los resultados son los siguientes:
+
+En el rectángulo, se ve cómo el lado que sobresale de la cámara es el que permite un seguimiento más libre, mientras que el lado que está por dentro de la región de la cámara ya está limitado.
+
+![Confiner1](./Media/confiner1.gif)
+
+En el caso del polígono ocurre lo mismo. También se puede apreciar como el movimiento de la cámara sigue el borde del polígono al entrar dentro del confinamiento.
+
+![Confiner2](./Media/confiner2.gif)
+
