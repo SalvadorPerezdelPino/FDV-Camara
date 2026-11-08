@@ -94,3 +94,29 @@ Lo bueno que tiene este método es que puede ser llamado de dos maneras: primero
 Como resultado, se muestra la funcionalidad, primero pulsando las teclas, y luego seleccionando desde la UI:
 
 ![Camera selector](./Media/CameraSelector.gif)
+
+> Crear un script para activar la cámara lenta cuando el personaje entre en colisión con un elemento de la escena que elijas para activar esta propiedad.
+
+> Crear un script para activar la cámara rápida cuando el personaje entre en colisión con un elemento de la escena que elijas para activar esta propiedad. 
+
+Para estas dos tareas, el personaje principal detecta si choca con un tronco o un filete y cambia su `Time.timeScale`:
+
+```cs
+private void OnTriggerEnter2D(Collider2D other) {
+    if (other.tag == "WOOD")
+    {
+        SlowCamera(); // 0.5
+        Destroy(other.gameObject);
+    } 
+    else if (other.tag == "MEAT")
+    {
+        FastCamera(); // 2.0
+        Destroy(other.gameObject);
+    }
+}
+```
+
+Como resultado, se ve que el personaje se mueve más despacio o más rápido, en conjunto con el entorno:
+
+![Slow and fast camera](./Media/SlowFastCamera.gif)
+
